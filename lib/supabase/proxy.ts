@@ -62,7 +62,10 @@ export async function updateSession(request: NextRequest) {
 
     return supabaseResponse
   } catch (error) {
-    console.error("Supabase middleware session update failed:", error)
+    console.error(
+      "Supabase middleware session update failed (check NEXT_PUBLIC_SUPABASE_URL/NEXT_PUBLIC_SUPABASE_ANON_KEY, Supabase availability, and auth credentials):",
+      error,
+    )
     return NextResponse.next({ request })
   }
 }
